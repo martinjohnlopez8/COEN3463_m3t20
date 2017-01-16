@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 		.then(function(nbateamsData){
 			res.render('nbateams', {
 				title: 'NBA Teams',
-				nbateamsData: nbateamsData
+				nbateamsData: nbateamsData,
         moment: moment
 			});
 		});

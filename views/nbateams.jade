@@ -40,5 +40,5 @@ block content
                 th= nbateamData.players
                 th= nbateamData.teamWebsite
                 th= nbateamData.socialPages
-                th= nbateamData.createdAt
-                th= nbateamData.updatedAt
+                th #{moment(nbateamData.createdAt).format("YYYY-MM-DD hh:mm:ss a")}
+                th #{moment(nbateamData.updatedAt).format("YYYY-MM-DD hh:mm:ss a")}

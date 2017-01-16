@@ -18,5 +18,5 @@ block content
 				p Starting Five: #{nbateamData.players}
 				p Website: #{nbateamData.teamWebsite}
 				p Social Media Pages: #{nbateamData.socialPages}
-				p Date Created: #{nbateamData.createdAt}
-				p Date Updated: #{nbateamData.updatedAt}
+				p Date Created: #{moment(nbateamData.createdAt).format("YYYY-MM-DD hh:mm:ss a")}
+				p Date Updated: #{moment(nbateamData.updateAt).format("YYYY-MM-DD hh:mm:ss a")}
