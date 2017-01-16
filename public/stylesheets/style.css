@@ -65,6 +65,7 @@ footer {
     background-image: -webkit-gradient(linear,left top,left bottom,from(blue),to(#222));
     color: white;
     text-align: center;
+    margin-top: 50px;
 }
 
 .add input[type=text], select {
@@ -144,6 +145,8 @@ footer {
 .info-page img{
     padding:0;
     margin: auto;
+    max-height: 450px;
+    min-height: 450px;
 }
 
 .info-page h5{
@@ -159,8 +162,4 @@ footer {
     font-weight: normal;
     line-height: 1.8;
     color: #0a0a0a;
-}
-
-.bottom-margin {
-    margin-bottom: 50px !important;
 }
