@@ -102,7 +102,6 @@ router.post('/:nbateamID/edit', function(req, res, next) {
                 if(!err){
                     res.render('edit', {
                         title: 'NBA Update',
-                        alertMessage: 'Team info updated!',
                         postError: false,
                         nbateamData: nbateamData,
                         moment: moment
@@ -111,7 +110,6 @@ router.post('/:nbateamID/edit', function(req, res, next) {
                 else{
                     res.render('edit', {
                         title: 'NBA Update',
-                        alertMessage: 'Team did not update',
                         postError: true,
                         nbateamData: nbateamData,
                         moment: moment

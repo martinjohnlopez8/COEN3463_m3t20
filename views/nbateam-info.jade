@@ -2,6 +2,8 @@ extends layout
 
 block content
 	.container-fluid
+		p
+			a.btn.btn-primary(href='/nbateams/#{nbateamData._id}/edit', role='button') Update
 		.row
 			.col-md-5.col-sm-12.info-page
 				h5 #{nbateamData.name} Background
