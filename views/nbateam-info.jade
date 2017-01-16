@@ -1,22 +1,112 @@
 extends layout
 
 block content
-	.container
+	.container-fluid
 		.row
-			.col-md-12
-				p Team Name: #{nbateamData.name}
-				p Abbreviation: #{nbateamData.abbreviation}
-				p Conference: #{nbateamData.conference}
-				p Division: #{nbateamData.division}
-				p Year Founded: #{nbateamData.founded}
-				p Arena: #{nbateamData.arena}
-				p Location: #{nbateamData.location}
-				p Manager: #{nbateamData.manager}
-				p Coach: #{nbateamData.coach}
-				p Number of Championships: #{nbateamData.numberOfChampionships}
-				p Championship Years: #{nbateamData.championshipYears}
-				p Starting Five: #{nbateamData.players}
-				p Website: #{nbateamData.teamWebsite}
-				p Social Media Pages: #{nbateamData.socialPages}
-				p Date Created: #{moment(nbateamData.createdAt).format("YYYY-MM-DD hh:mm:ss a")}
-				p Date Updated: #{moment(nbateamData.updateAt).format("YYYY-MM-DD hh:mm:ss a")}
+			.col-md-5.col-sm-12.info-page
+				h5 #{nbateamData.name} Background
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Abbreviation: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.abbreviation}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Conference:  
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.conference}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Division: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.division}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Year Founded: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.founded}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Arena: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.arena}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Location: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.location}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Manager: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.manager}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Coach: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.coach}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Number of Championships: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.numberOfChampionsips}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Championship Years:  
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.championshipYears}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Starters: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{nbateamData.players}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Website: 
+					.col-md-7.col-sm-8.col-xs-8
+						p 
+							a(href='#{nbateamData.teamWebsite}', target='_blank')
+								| #{nbateamData.teamWebsite}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Social Media: 
+					.col-md-7.col-sm-8.col-xs-8
+						p 
+							a(href='#{nbateamData.socialPages}', target='_blank')
+								| #{nbateamData.socialPages}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Date Created: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{moment(nbateamData.createdAt).format("YYYY-MM-DD hh:mm:ss a")}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Date Updated: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{moment(nbateamData.updateAt).format("YYYY-MM-DD hh:mm:ss a")}
+			//- .col-md-7.col-sm-12.info-page
+			//- 	h5 Team Logo
+				//- img(src='#{nbateamData.logoLink}', alt='')
+
+			//- 	h3 #{nbateamData.name} Background
+			//- 	p Abbreviation: #{nbateamData.abbreviation}
+			//- 	p Conference: #{nbateamData.conference}
+			//- 	p Division: #{nbateamData.division}
+			//- 	p Year Founded: #{nbateamData.founded}
+			//- 	p Arena: #{nbateamData.arena}
+			//- 	p Location: #{nbateamData.location}
+			//- 	p Manager: #{nbateamData.manager}
+			//- 	p Coach: #{nbateamData.coach}
+			//- 	p Number of Championships: #{nbateamData.numberOfChampionships}
+			//- 	p Championship Years: #{nbateamData.championshipYears}
+			//- 	p Starting Five: #{nbateamData.players}
+			//- 	p Website: 
+					a(href='#{nbateamData.teamWebsite}', target='_blank')
+						| #{nbateamData.teamWebsite}
+			//- 	p Social Media Pages: 
+			//- 			a(href='#{nbateamData.socialPages}', target='_blank')
+			//- 				| #{nbateamData.socialPages}
+			//- 	p Date Created: #{moment(nbateamData.createdAt).format("YYYY-MM-DD hh:mm:ss a")}
+			//- 	p Date Updated: #{moment(nbateamData.updateAt).format("YYYY-MM-DD hh:mm:ss a")}
+			//- .col-md-7.col-xs-12.info-page
+			//- 	h3 History

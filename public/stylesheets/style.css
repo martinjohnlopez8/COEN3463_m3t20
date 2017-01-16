@@ -134,3 +134,25 @@ footer {
 .font-white {
     color:white !important;
 }
+
+.info-page {
+}
+
+.info-page h5{
+    background: #0f6db4;
+    padding: .5em;
+    color: #fff;
+}
+
+.info-page label{
+    display: block;
+    padding: 0 10px;
+    margin: 0;
+    font-weight: normal;
+    line-height: 1.8;
+    color: #0a0a0a;
+}
+
+.pull-right{
+    display: block;
+}
