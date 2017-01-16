@@ -1,19 +1,22 @@
 extends layout
 
-block content	
-	p= nbateamData.name
-	p= nbateamData.abbreviation
-	p= nbateamData.conference
-	p= nbateamData.division
-	p= nbateamData.founded
-	p= nbateamData.arena
-	p= nbateamData.location
-	p= nbateamData.manager
-	p= nbateamData.coach
-	p= nbateamData.numberOfChampionships
-	p= nbateamData.championshipYears
-	p= nbateamData.players
-	p= nbateamData.teamWebsite
-	p= nbateamData.socialPages
-	p= nbateamData.createdAt
-	p= nbateamData.updatedAt
+block content
+	.container
+		.row
+			.col-md-12
+				p Team Name: #{nbateamData.name}
+				p Abbreviation: #{nbateamData.abbreviation}
+				p Conference: #{nbateamData.conference}
+				p Division: #{nbateamData.division}
+				p Year Founded: #{nbateamData.founded}
+				p Arena: #{nbateamData.arena}
+				p Location: #{nbateamData.location}
+				p Manager: #{nbateamData.manager}
+				p Coach: #{nbateamData.coach}
+				p Number of Championships: #{nbateamData.numberOfChampionships}
+				p Championship Years: #{nbateamData.championshipYears}
+				p Starting Five: #{nbateamData.players}
+				p Website: #{nbateamData.teamWebsite}
+				p Social Media Pages: #{nbateamData.socialPages}
+				p Date Created: #{nbateamData.createdAt}
+				p Date Updated: #{nbateamData.updatedAt}
