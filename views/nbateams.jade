@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-6
+        table.table.table-striped
+          thead
+            tr
+              th Team
+              th Abbr
+              th Conf.
+              th Div.
+              th Founded
+              th Arena
+              th Loc.
+              th Manager
+              th Head Coach
+              th # of Championships
+              th Championship Years
+              th Players
+              th Website
+              th Social Pages
+              th Creation Date
+              th Update Date
+          thead
+            each nbateamData in nbateamsData
+              tr
+                th= nbateamData.name
+                th= nbateamData.abbreviation
+                th= nbateamData.conference
+                th= nbateamData.division
+                th= nbateamData.founded
+                th= nbateamData.arena
+                th= nbateamData.location
+                th= nbateamData.manager
+                th= nbateamData.coach
+                th= nbateamData.numberOfChampionships
+                th= nbateamData.championshipYears
+                th= nbateamData.players
+                th= nbateamData.teamWebsite
+                th= nbateamData.socialPages
+                th= nbateamData.createdAt
+                th= nbateamData.updatedAt

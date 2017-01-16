@@ -4,11 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
+var mongoose = require('mongoose');
+var Scheme = mongoose.schema;
+var uri = 'mongodb://admin:password@ds161008.mlab.com:61008/nbadb'
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/nbateams');
 
 var app = express();
+
+mongoose.Promise = global.Promise;
+var db = mongoose.connect(uri);
+
+//load all files in models dir
+fs.readdirSync(__dirname + '/models').forEach(function(filename) {
+  if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +35,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/nbateams', users);
+
+app.get('/hehe', function(req, res) {
+  mongoose.model('nbateamsData').find(function(err, nbateamsData) {
+    res.send(nbateamsData);
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

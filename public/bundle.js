@@ -56,7 +56,7 @@
 
 	var _Header = __webpack_require__(178);
 
-	var _Home = __webpack_require__(179);
+	var _Sidebar = __webpack_require__(179);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -80,25 +80,8 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ className: 'container' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-xs-10 col-xs-offset-1' },
-							_react2.default.createElement(_Header.Header, null)
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-xs-10 col-xs-offset-1' },
-							_react2.default.createElement(_Home.Home, null)
-						)
-					)
+					null,
+					_react2.default.createElement(_Sidebar.Sidebar, null)
 				);
 			}
 		}]);
@@ -21574,23 +21557,80 @@
 			value: function render() {
 				return _react2.default.createElement(
 					"nav",
-					{ className: "navbar navbar-default" },
+					{ className: "navbar navbar-inverse navbar-fixed-top", role: "navigation" },
 					_react2.default.createElement(
 						"div",
-						{ className: "container" },
+						{ className: "container-fluid" },
 						_react2.default.createElement(
 							"div",
 							{ className: "navbar-header" },
 							_react2.default.createElement(
+								"button",
+								{ type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#sidebar-collapse" },
+								_react2.default.createElement(
+									"span",
+									{ className: "sr-only" },
+									"Toggle navigation"
+								),
+								_react2.default.createElement("span", { className: "icon-bar" }),
+								_react2.default.createElement("span", { className: "icon-bar" }),
+								_react2.default.createElement("span", { className: "icon-bar" })
+							),
+							_react2.default.createElement(
+								"a",
+								{ className: "navbar-brand", href: "#" },
+								_react2.default.createElement(
+									"span",
+									null,
+									"Lumino"
+								),
+								"Admin"
+							),
+							_react2.default.createElement(
 								"ul",
-								{ className: "nav navbar-nav" },
+								{ className: "user-menu" },
 								_react2.default.createElement(
 									"li",
-									null,
+									{ className: "dropdown pull-right" },
 									_react2.default.createElement(
 										"a",
-										{ href: "#" },
-										"Home"
+										{ href: "#", className: "dropdown-toggle" },
+										"User ",
+										_react2.default.createElement("span", { "class": "caret" })
+									),
+									_react2.default.createElement(
+										"ul",
+										{ className: "dropdown-menu", role: "menu" },
+										_react2.default.createElement(
+											"li",
+											null,
+											_react2.default.createElement(
+												"a",
+												{ href: "#" },
+												_react2.default.createElement("svg", { className: "glyph stroked male-user" }),
+												" Profile"
+											)
+										),
+										_react2.default.createElement(
+											"li",
+											null,
+											_react2.default.createElement(
+												"a",
+												{ href: "#" },
+												_react2.default.createElement("svg", { className: "glyph stroked gear" }),
+												" Settings"
+											)
+										),
+										_react2.default.createElement(
+											"li",
+											null,
+											_react2.default.createElement(
+												"a",
+												{ href: "#" },
+												_react2.default.createElement("svg", { className: "glyph stroked cancel" }),
+												" Logout"
+											)
+										)
 									)
 								)
 							)
@@ -21642,11 +21682,148 @@
 			value: function render() {
 				return _react2.default.createElement(
 					"div",
-					null,
+					{ id: "sidebar-collapse", className: "col-sm-3 col-lg-2 sidebar" },
 					_react2.default.createElement(
-						"p",
-						null,
-						"Im a new Component!"
+						"form",
+						{ role: "search" },
+						_react2.default.createElement(
+							"div",
+							{ className: "form-group" },
+							_react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Search" })
+						)
+					),
+					_react2.default.createElement(
+						"ul",
+						{ className: "nav menu" },
+						_react2.default.createElement(
+							"li",
+							{ className: "active" },
+							_react2.default.createElement(
+								"a",
+								{ href: "index.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked dashboard-dial" }),
+								" Dashboard"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "widgets.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked calendar" }),
+								" Widgets"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "charts.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked line-graph" }),
+								" Charts"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "tables.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked table" }),
+								" Tables"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "forms.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked pencil" }),
+								" Forms"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "panels.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked app-window" }),
+								" Alerts & Panels"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "icons.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked star" }),
+								" Icons"
+							)
+						),
+						_react2.default.createElement(
+							"li",
+							{ className: "parent " },
+							_react2.default.createElement(
+								"a",
+								{ href: "#" },
+								_react2.default.createElement(
+									"span",
+									{ "data-toggle": "collapse", href: "#sub-item-1" },
+									_react2.default.createElement("svg", { className: "glyph stroked chevron-down" })
+								),
+								" Dropdown"
+							),
+							_react2.default.createElement(
+								"ul",
+								{ className: "children collapse", id: "sub-item-1" },
+								_react2.default.createElement(
+									"li",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ className: "", href: "#" },
+										_react2.default.createElement("svg", { className: "glyph stroked chevron-right" }),
+										" Sub Item 1"
+									)
+								),
+								_react2.default.createElement(
+									"li",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ className: "", href: "#" },
+										_react2.default.createElement("svg", { className: "glyph stroked chevron-right" }),
+										" Sub Item 2"
+									)
+								),
+								_react2.default.createElement(
+									"li",
+									null,
+									_react2.default.createElement(
+										"a",
+										{ className: "", href: "#" },
+										_react2.default.createElement("svg", { className: "glyph stroked chevron-right" }),
+										" Sub Item 3"
+									)
+								)
+							)
+						),
+						_react2.default.createElement("li", { role: "presentation", className: "divider" }),
+						_react2.default.createElement(
+							"li",
+							null,
+							_react2.default.createElement(
+								"a",
+								{ href: "login.html" },
+								_react2.default.createElement("svg", { className: "glyph stroked male-user" }),
+								" Login Page"
+							)
+						)
 					)
 				);
 			}
