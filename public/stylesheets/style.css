@@ -46,6 +46,8 @@ body {
     color: #d17581;
 }
 
+
+
 .thumbnail {
     padding: 0;
 }
@@ -116,3 +118,16 @@ footer {
 .edit input[type=submit]:hover {
     background-color: #45a049;
 }
+
+.team-list-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 165px);
+}
+
+.team-list p {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #CCD0D3;
+}
+
