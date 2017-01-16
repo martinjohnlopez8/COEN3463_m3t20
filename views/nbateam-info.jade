@@ -84,9 +84,9 @@ block content
 						label Date Updated: 
 					.col-md-7.col-sm-8.col-xs-8
 						p #{moment(nbateamData.updateAt).format("YYYY-MM-DD hh:mm:ss a")}
-			//- .col-md-7.col-sm-12.info-page
-			//- 	h5 Team Logo
-				//- img(src='#{nbateamData.logoLink}', alt='')
+			.col-md-7.col-sm-12.col-xs-12.info-page
+				h5 Team Logo
+				img.img-responsive(src='#{nbateamData.logoLink}', alt='')
 
 			//- 	h3 #{nbateamData.name} Background
 			//- 	p Abbreviation: #{nbateamData.abbreviation}
