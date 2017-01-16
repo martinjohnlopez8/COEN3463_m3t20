@@ -67,7 +67,7 @@ router.get('/:nbateamID/edit', function(req, res, next) {
     nbateamsData.findOne({_id: nbateamID}, function(err, nbateamData) {
         if(!err){
             res.render('edit', {
-                title: 'Edit',
+                title: 'NBA Update',
                 nbateamData: nbateamData,
                 moment: moment
             });

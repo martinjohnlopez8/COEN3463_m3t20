@@ -6,10 +6,10 @@ block content
       .col-md-12
         section.update
           h3 Update Data
-          form(action='/nbateams/#{nbateamData._id}/edit', method='post')
+          form.edit(action='/nbateams/#{nbateamData._id}/edit', method='post')
             .input
               label(for='name') Name
-              input#name(type='text', name='name' value="#{nbateamData.name}")
+              input#name(type='text', name='name' value="#{nbateamData.name}" required)
             .input
               label(for='abbreviation') Abbreviation
               input#abbreviation(type='text', name='abbreviation' value="#{nbateamData.abbreviation}")
@@ -52,4 +52,4 @@ block content
             .input
               label(for='socialPages') Social Pages
               input#socialPages(type='text', name='socialPages' value="#{nbateamData.socialPages}")
-            button(type='submit') UPDATE
+            button.btn-danger.btn(type='submit') UPDATE
