@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 router.get('/', function(req, res, next) {
 	nbateamsData.find()
@@ -7,6 +8,7 @@ router.get('/', function(req, res, next) {
 			res.render('nbateams', {
 				title: 'NBA Teams',
 				nbateamsData: nbateamsData
+        moment: moment
 			});
 		});
 	});
@@ -51,6 +53,7 @@ router.get('/:nbateamID/', function(req, res, next) {
             res.render('nbateam-info', {
                 title: 'Team Info',
                 nbateamData: nbateamData,
+                moment: moment
             });
         }
         else {
@@ -66,6 +69,7 @@ router.get('/:nbateamID/edit', function(req, res, next) {
             res.render('edit', {
                 title: 'Edit',
                 nbateamData: nbateamData,
+                moment: moment
             });
         }
         else {
@@ -101,6 +105,7 @@ router.post('/:nbateamID/edit', function(req, res, next) {
                         alertMessage: 'Team info updated!',
                         postError: false,
                         nbateamData: nbateamData,
+                        moment: moment
                     });
                 }
                 else{
@@ -109,6 +114,7 @@ router.post('/:nbateamID/edit', function(req, res, next) {
                         alertMessage: 'Team did not update',
                         postError: true,
                         nbateamData: nbateamData,
+                        moment: moment
                     });
                 }
             });
@@ -118,33 +124,6 @@ router.post('/:nbateamID/edit', function(req, res, next) {
         }
     });
 });
-
-// router.post('/:nbateamID/', function(req, res, next) {
-//   var id = req.body.id;
-
-//   nbateamsData.findById(id, function(err, nbateam) {
-//     if (err) {
-//       console.error('error, no entry found');
-//     }
-//     nbateam.name = req.body.name,
-//     nbateam.abbreviation = req.body.abbreviation,
-//     nbateam.conference = req.body.conference,
-//     nbateam.division = req.body.division,
-//     nbateam.founded = req.body.founded,
-//     nbateam.arena = req.body.arena,
-//     nbateam.location = req.body.location,
-//     nbateam.manager = req.body.manager,
-//     nbateam.coach = req.body.coach,
-//     nbateam.numberOfChampionships = req.body.numberOfChampionships,
-//     nbateam.championshipYears = req.body.championshipYears,
-//     nbateam.players = req.body.players,
-//     nbateam.logoLink = req.body.logoLink,
-//     nbateam.teamWebsite = req.body.teamWebsite,
-//     nbateam.socialPages = req.body.socialPages
-//     nbateam.save();
-//   })
-//   res.redirect('/nbateams');
-// });
 
 router.post('/:nbateamID/delete', function(req, res, next) {
     var nbateamID = req.params.nbateamID;
