@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 			res.render('nbateams', {
 				title: 'NBA Teams',
 				nbateamsData: nbateamsData,
-        moment: moment
+                moment: moment
 			});
 		});
 	});
