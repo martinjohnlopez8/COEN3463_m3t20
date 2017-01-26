@@ -8,19 +8,19 @@ block content
           h3 Update Data
           form.edit(action='/nbateams/#{nbateamData._id}/edit', method='post')
             .input
-              label(for='name') Name
+              label(for='name') Name *required
               input#name(type='text', name='name' value="#{nbateamData.name}" required)
             .input
-              label(for='abbreviation') Abbreviation
+              label(for='abbreviation') Abbreviation *required
               input#abbreviation(type='text', name='abbreviation' value="#{nbateamData.abbreviation}" required)
             .input
-              label(for='conference') Conference
+              label(for='conference') Conference *required
               input#conference(type='text', name='conference' value="#{nbateamData.conference}" required)
             .input
-              label(for='division') Division
+              label(for='division') Division *required
               input#division(type='text', name='division' value="#{nbateamData.division}" required)
             .input
-              label(for='founded') Founded
+              label(for='founded') Founded *required
               input#founded(type='text', name='founded' value="#{nbateamData.founded}" required)
             .input
               label(for='arena') Arena
