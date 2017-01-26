@@ -7,46 +7,51 @@ block content
         section.insert
           h3 Insert Data
           form.add(action='/nbateams/add', method='post')
-            .input
-              label(for='name') Name
-              input#title(type='text', name='name' required)
-            .input
-              label(for='abbreviation') Abbreviation
-              input#content(type='text', name='abbreviation')
-            .input
-              label(for='conference') Conference
-              input#author(type='text', name='conference')
-            .input
-              label(for='division') Division
-              input#author(type='text', name='division')
-            .input
-              label(for='founded') Founded
-              input#author(type='text', name='founded')
-            .input
-              label(for='arena') Arena
-              input#author(type='text', name='arena')
-            .input
-              label(for='location') Location
-              input#author(type='text', name='location')
-            .input
-              label(for='manager') Manager
-              input#author(type='text', name='manager')
-            .input
-              label(for='numberOfChampionships') Number of Championships
-              input#author(type='text', name='numberOfChampionships')
-            .input
-              label(for='championshipYears') Championship Years
-              input#author(type='text', name='championshipYears')
-            .input
-              label(for='players') Players
-              input#author(type='text', name='players')
-            .input
-              label(for='logoLink') Logo
-              input#author(type='text', name='logoLink')
-            .input
-              label(for='teamWebsite') Website
-              input#author(type='text', name='teamWebsite')
-            .input
-              label(for='socialPages') Social Pages
-              input#author(type='text', name='socialPages')
-            button.btn.btn-danger(type='submit') INSERT
+            .col-md-6
+              .input
+                label(for='name') Name *required
+                input#title(type='text', name='name' required)
+              .input
+                label(for='abbreviation') Abbreviation *required
+                input#content(type='text', name='abbreviation' required)
+              .input
+                label(for='conference') Conference *required
+                input#author(type='text', name='conference' required)
+              .input
+                label(for='division') Division *required
+                input#author(type='text', name='division' required)
+              .input
+                label(for='founded') Founded *required
+                input#author(type='text', name='founded' required)
+              .input
+                label(for='arena') Arena
+                input#author(type='text', name='arena')
+              .input
+                label(for='location') Location
+                input#author(type='text', name='location')
+              .input
+                label(for='manager') Manager
+                input#author(type='text', name='manager')
+            .col-md-6
+              .input
+                label(for='coach') Coach
+                input#author(type='text', name='coach')
+              .input
+                label(for='numberOfChampionships') Number of Championships
+                input#author(type='text', name='numberOfChampionships')
+              .input
+                label(for='championshipYears') Championship Years
+                input#author(type='text', name='championshipYears')
+              .input
+                label(for='players') Players
+                input#author(type='text', name='players')
+              .input
+                label(for='logoLink') Logo
+                input#author(type='text', name='logoLink')
+              .input
+                label(for='teamWebsite') Website
+                input#author(type='text', name='teamWebsite')
+              .input
+                label(for='socialPages') Social Pages
+                input#author(type='text', name='socialPages')
+              button.btn.btn-danger(type='submit') INSERT
