@@ -7,49 +7,51 @@ block content
         section.update
           h3 Update Data
           form.edit(action='/nbateams/#{nbateamData._id}/edit', method='post')
-            .input
-              label(for='name') Name *required
-              input#name(type='text', name='name' value="#{nbateamData.name}" required)
-            .input
-              label(for='abbreviation') Abbreviation *required
-              input#abbreviation(type='text', name='abbreviation' value="#{nbateamData.abbreviation}" required)
-            .input
-              label(for='conference') Conference *required
-              input#conference(type='text', name='conference' value="#{nbateamData.conference}" required)
-            .input
-              label(for='division') Division *required
-              input#division(type='text', name='division' value="#{nbateamData.division}" required)
-            .input
-              label(for='founded') Founded *required
-              input#founded(type='text', name='founded' value="#{nbateamData.founded}" required)
-            .input
-              label(for='arena') Arena
-              input#arena(type='text', name='arena' value="#{nbateamData.arena}")
-            .input
-              label(for='location') Location
-              input#location(type='text', name='location' value="#{nbateamData.location}")
-            .input
-              label(for='manager') Manager
-              input#manager(type='text', name='manager' value="#{nbateamData.manager}")
-            .input
-              label(for='coach') Coach
-              input#coach(type='text', name='coach' value="#{nbateamData.coach}")
-            .input
-              label(for='numberOfChampionships') Number of Championships
-              input#numberOfChampionships(type='text', name='numberOfChampionships' value="#{nbateamData.numberOfChampionships}")
-            .input
-              label(for='championshipYears') Championship Years
-              input#championshipYears(type='text', name='championshipYears' value="#{nbateamData.championshipYears}")
-            .input
-              label(for='players') Players
-              input#players(type='text', name='players' value="#{nbateamData.players}")
-            .input
-              label(for='logoLink') Logo
-              input#logoLink(type='text', name='logoLink' value="#{nbateamData.logoLink}")
-            .input
-              label(for='teamWebsite') Website
-              input#teamWebsite(type='text', name='teamWebsite' value="#{nbateamData.teamWebsite}")
-            .input
-              label(for='socialPages') Social Pages
-              input#socialPages(type='text', name='socialPages' value="#{nbateamData.socialPages}")
-            button.btn-danger.btn(type='submit') UPDATE
+            .col-md-6.col-sm-6
+              .input.margin-bot-10
+                label(for='name') Name *required
+                input#name(type='text', name='name' value="#{nbateamData.name}" required)
+              .input.margin-bot-10
+                label(for='abbreviation') Abbreviation *required
+                input#abbreviation(type='text', name='abbreviation' value="#{nbateamData.abbreviation}" required)
+              .input.margin-bot-10
+                label(for='conference') Conference *required
+                input#conference(type='text', name='conference' value="#{nbateamData.conference}" required)
+              .input.margin-bot-10
+                label(for='division') Division *required
+                input#division(type='text', name='division' value="#{nbateamData.division}" required)
+              .input.margin-bot-10
+                label(for='founded') Founded *required
+                input#founded(type='text', name='founded' value="#{nbateamData.founded}" required)
+              .input.margin-bot-10
+                label(for='arena') Arena
+                input#arena(type='text', name='arena' value="#{nbateamData.arena}")
+              .input.margin-bot-10
+                label(for='location') Location
+                input#location(type='text', name='location' value="#{nbateamData.location}")
+              .input.margin-bot-10
+                label(for='manager') Manager
+                input#manager(type='text', name='manager' value="#{nbateamData.manager}")
+            .col-md-6.col-sm-6
+              .input.margin-bot-10
+                label(for='coach') Coach
+                input#coach(type='text', name='coach' value="#{nbateamData.coach}")
+              .input.margin-bot-10
+                label(for='numberOfChampionships') Number of Championships
+                input#numberOfChampionships(type='text', name='numberOfChampionships' value="#{nbateamData.numberOfChampionships}")
+              .input.margin-bot-10
+                label(for='championshipYears') Championship Years
+                input#championshipYears(type='text', name='championshipYears' value="#{nbateamData.championshipYears}")
+              .input.margin-bot-10
+                label(for='players') Players
+                input#players(type='text', name='players' value="#{nbateamData.players}")
+              .input.margin-bot-10
+                label(for='logoLink') Logo
+                input#logoLink(type='text', name='logoLink' value="#{nbateamData.logoLink}")
+              .input.margin-bot-10
+                label(for='teamWebsite') Website
+                input#teamWebsite(type='text', name='teamWebsite' value="#{nbateamData.teamWebsite}")
+              .input
+                label(for='socialPages') Social Pages
+                input#socialPages(type='text', name='socialPages' value="#{nbateamData.socialPages}")
+              button.btn-danger.btn(type='submit') UPDATE

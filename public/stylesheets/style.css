@@ -16,6 +16,10 @@ body {
     width: 100%;
 }
 
+.margin-bot-10{
+    margin-bottom: 10px;
+}
+
 .carousel-holder {
     margin-bottom: 30px;
 }
