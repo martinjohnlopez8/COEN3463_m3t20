@@ -9,8 +9,14 @@ var mongoose = require('mongoose');
 var Scheme = mongoose.schema;
 var uri = 'mongodb://admin:password@ds161008.mlab.com:61008/nbadb'
 
+var passport = require('passport');
+var session = require('express-session');
+var LocalStrategy = require('passport-local').Strategy;
+
 var index = require('./routes/index');
-var users = require('./routes/nbateams');
+var nbateams = require('./routes/nbateams');
+var users = require('./routes/users');
+
 
 var app = express();
 
@@ -33,9 +39,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+var User = require('./models/user');
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', index);
-app.use('/nbateams', users);
+app.use('/nbateams', nbateams);
+app.use('/users', users);
+
 
 app.get('/hehe', function(req, res) {
   mongoose.model('nbateamsData').find(function(err, nbateamsData) {

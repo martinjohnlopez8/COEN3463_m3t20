@@ -7,7 +7,7 @@ block content
         section.insert
           h3 Insert Data
           form.add(action='/nbateams/add', method='post')
-            .col-md-6
+            .col-md-6.col-sm-6
               .input
                 label(for='name') Name *required
                 input#title(type='text', name='name' required)
@@ -32,7 +32,7 @@ block content
               .input
                 label(for='manager') Manager
                 input#author(type='text', name='manager')
-            .col-md-6
+            .col-md-6.col-sm-6
               .input
                 label(for='coach') Coach
                 input#author(type='text', name='coach')
