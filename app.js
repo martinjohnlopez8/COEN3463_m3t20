@@ -8,7 +8,8 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var Scheme = mongoose.schema;
 var uri = 'mongodb://admin:password@ds161008.mlab.com:61008/nbadb'
-
+// var uri = 'localhost/16017'
+var flash = require('connect-flash');
 var passport = require('passport');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
@@ -16,6 +17,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var index = require('./routes/index');
 var nbateams = require('./routes/nbateams');
 var users = require('./routes/users');
+var contacts = require('./routes/contacts');
 
 
 var app = express();
@@ -48,22 +50,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-var User = require('./models/user');
-passport.use(User.createStrategy());
-
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(usersData.createStrategy());
+passport.serializeUser(usersData.serializeUser());
+passport.deserializeUser(usersData.deserializeUser());
 
 app.use('/', index);
 app.use('/nbateams', nbateams);
 app.use('/users', users);
-
-
-app.get('/hehe', function(req, res) {
-  mongoose.model('nbateamsData').find(function(err, nbateamsData) {
-    res.send(nbateamsData);
-  });
-});
+app.use('/contacts', contacts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

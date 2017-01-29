@@ -1,43 +1,51 @@
-extends layout
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style-login.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+  body   
+    block content
+    container
+      .row
+        .col-md-6.col-md-offset-3
+          .panel.panel-login
+            .panel-heading
+              .row
+                .col-xs-6
+                  a#login-form-link.active(href='') Login
+                .col-xs-6
+                  a#register-form-link(href='') Register
+              hr
+            .panel-body
+              .row
+                .col-lg-12
+                  form#login-form(action='/login', method='post', role='form', style='display: block;')
+                    .form-group
+                      input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
+                    .form-group
+                      input#password.form-control(type='password', name='password', tabindex='2', placeholder='Password')
+                    .form-group
+                      .row
+                        .col-sm-6.col-sm-offset-3
+                          input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Log In')
+                  form#register-form(action='/register', method='post', role='form', style='display: none;')
+                    .form-group
+                      input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
+                    .form-group
+                      input#password.form-control(type='password', name='password', tabindex='2', placeholder='Password')
+                    .form-group
+                      input#confirm-password.form-control(type='password', name='confirm-password', tabindex='2', placeholder='Confirm Password')
+                    .form-group
+                      .row
+                        .col-sm-6.col-sm-offset-3
+                          input#register-submit.form-control.btn.btn-register(type='submit', name='register-submit', tabindex='4', value='Register Now')
+    script(src="/javascripts/jquery.js", type="text/javascript")
+    script(src="/javascripts/bootstrap.min.js", type="text/javascript")
+    script(src="/javascripts/login.js", type="text/javascript")
 
-block content
-  .container
-    .row
-      .col-md-3.team-list-container
-        p.lead Team List
-        .list-group.team-list
-          each nbateamData in nbateamsData
-            a(href="nbateams/#{nbateamData.id}")
-              p= nbateamData.name
-          | &nbsp;
-        p
-          a.btn.btn-primary(href='/nbateams/add', role='button') Add a team
-      .col-md-9
-        .row
-          each nbateamData in nbateamsData
-            .col-sm-4.col-lg-4.col-md-4
-              .thumbnail
-                a(href="nbateams/#{nbateamData.id}")
-                  img.img-responsives(src='#{nbateamData.logoLink}', alt='logo')
-                  .caption
-                    h4
-                      p= nbateamData.name
-                    p
-                      a.btn.btn-primary(href='/nbateams/#{nbateamData._id}/edit', role='button') Update
-                      | &nbsp;
-                      | &nbsp;
-                      | &nbsp;
-                      a.btn.btn-danger(data-target='##{nbateamData._id}', role='button', data-toggle="modal") Delete
-            .modal.fade(id="#{nbateamData._id}")
-              form(action='/nbateams/#{nbateamData._id}/delete', method='post')
-                  .modal-dialog
-                      .modal-content
-                          .modal-header
-                              button.close(type='button', data-dismiss='modal', aria-label='Cancel')
-                                  span(aria-hidden='true') &times;
-                              h4.modal-title The #{nbateamData.name} will be removed from the database.
-                          .modal-body
-                              p Do you want to delete this team?          
-                          .modal-footer
-                              button.btn.btn-danger(name='submit', type='submit',) Delete
-                              button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+

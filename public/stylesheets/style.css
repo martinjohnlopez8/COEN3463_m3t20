@@ -172,3 +172,13 @@ footer {
     line-height: 1.8;
     color: #0a0a0a;
 }
+
+.user-menu {
+    display: inline-block;
+    margin-top: 14px;
+    margin-right: 10px;
+    float: right;
+    list-style: none;
+    padding: 0;
+}
+

@@ -5,13 +5,27 @@ var moment = require('moment');
 router.get('/', function(req, res, next) {
 	nbateamsData.find()
 		.then(function(nbateamsData){
-			res.render('nbateams', {
+			res.render('dashboard', {
 				title: 'NBA Teams',
+                user: req.user,
 				nbateamsData: nbateamsData,
+                usersData: usersData,
                 moment: moment
 			});
 		});
 	});
+
+router.get('/list', function(req, res, next) {
+    nbateamsData.find()
+        .then(function(nbateamsData){
+            res.render('nbateams-list', {
+                title: 'NBA Teams',
+                user: req.user,
+                nbateamsData: nbateamsData,
+                moment: moment
+            });
+        });
+    });
 
 router.get('/add', function(req, res, next) {
     res.render('add', {
@@ -125,7 +139,7 @@ router.post('/:nbateamID/delete', function(req, res, next) {
     var nbateamID = req.params.nbateamID;
     nbateamsData.remove({_id: nbateamID}, function(err,nbateamData){
         if(!err){
-            res.redirect('/');
+            res.redirect('/nbateams');
         }
         else {
             res.end(err);

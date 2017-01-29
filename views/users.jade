@@ -1,0 +1,31 @@
+extend layout
+
+block content
+  h1 Your contacts
+  p Here is a list of your contacts.
+  p
+    a#delete.btn.btn-default(hrer="#") Delete
+    |  
+    a#add.btn.btn-default(href="/users/add") Add new
+  table.table
+    thead
+      tr
+        th
+        th username
+        th Nickname
+        th Email
+    tbody
+      if !usersData.length
+        tr
+          td(colspan=4) You should add a contact
+      else
+        each userData in usersData
+          tr
+            td
+              input(type="checkbox", id=usersData.id)
+            td
+              a(href="/users/#{usersData.id}") #{usersData.name}
+              |  #{usersData.username}
+            td #{usersData.username}
+            td
+              a(href="mailto:#{usersData.email") #{usersData.email}

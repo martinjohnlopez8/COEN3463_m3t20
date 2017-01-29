@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .row
+    .col-md-6
+      h1 Add a contact
+      form(role="form", method="post", action="/users/add")
+        .form-group
+          label(for="fullname") First Name
+          input#fullname.form-control(name="firstName", type="text", value=usersData.firstName)
+        .form-group
+          label(for="nickname") Last Name
+          input#nickname.form-control(name="lastName", type="text", value=usersData.lastName)
+        .form-group
+          label(for="email") E-mail address
+          input#email.form-control(name="email", type="email", value=usersData.email)
+        button.btn.btn-primary(type="submit") Add user
