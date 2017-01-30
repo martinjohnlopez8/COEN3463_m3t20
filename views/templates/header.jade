@@ -6,13 +6,20 @@ nav.navbar.navbar-inverse.navbar-fixed-top.nav-blue(role='navigation')
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand.font-white(href='/nbateams') NBADB
+      a.navbar-brand.font-white(href='/nbateams') Dashboard
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
           a.font-white(href='/nbateams/list') NBA Teams
+        li
+          a.font-white(href='/users') User List
       ul.user-menu
-          a.font-white(href='/') Log out
+        div.dropdown
+          button.btn.btn-primary.dropdown-toggle(type='button' data-toggle="dropdown") #{user.username}
+          span.caret
+          ul.dropdown-menu
+            li
+              a.font-white(href='/') Log out
 
 
 

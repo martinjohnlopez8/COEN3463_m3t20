@@ -87,6 +87,16 @@ footer {
     box-sizing: border-box;
 }
 
+.add input[type=password], select {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 .add input[type=submit] {
     width: 100%;
     background-color: #4CAF50;

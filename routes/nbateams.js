@@ -2,6 +2,13 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 
+router.use(function(req, res, next) {
+  if (!req.user) {
+    res.redirect('/login')
+  }
+  next();
+});
+
 router.get('/', function(req, res, next) {
 	nbateamsData.find()
 		.then(function(nbateamsData){
@@ -22,6 +29,7 @@ router.get('/list', function(req, res, next) {
                 title: 'NBA Teams',
                 user: req.user,
                 nbateamsData: nbateamsData,
+                usersData: usersData,
                 moment: moment
             });
         });
@@ -30,7 +38,9 @@ router.get('/list', function(req, res, next) {
 router.get('/add', function(req, res, next) {
     res.render('add', {
         title: 'Add Team',
-        nbateamsData: nbateamsData
+        nbateamsData: nbateamsData,
+        user: req.user,
+        usersData: usersData
     });
 });
 
@@ -66,7 +76,9 @@ router.get('/:nbateamID/', function(req, res, next) {
         if(!err){
             res.render('nbateam-info', {
                 title: 'Team Info',
+                user: req.user,
                 nbateamData: nbateamData,
+                usersData: usersData,
                 moment: moment
             });
         }
@@ -83,6 +95,7 @@ router.get('/:nbateamID/edit', function(req, res, next) {
             res.render('edit', {
                 title: 'NBA Update',
                 nbateamData: nbateamData,
+                usersData: usersData,
                 moment: moment
             });
         }
@@ -116,6 +129,7 @@ router.post('/:nbateamID/edit', function(req, res, next) {
                 if(!err){
                     res.render('edit', {
                         title: 'NBA Update',
+                        user: req.user,
                         nbateamData: nbateamData,
                         moment: moment
                     });
@@ -123,6 +137,7 @@ router.post('/:nbateamID/edit', function(req, res, next) {
                 else{
                     res.render('edit', {
                         title: 'NBA Update',
+                        user: req.user,
                         nbateamData: nbateamData,
                         moment: moment
                     });
