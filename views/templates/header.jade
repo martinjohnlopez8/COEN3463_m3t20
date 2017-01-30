@@ -19,7 +19,9 @@ nav.navbar.navbar-inverse.navbar-fixed-top.nav-blue(role='navigation')
           span.caret
           ul.dropdown-menu
             li
-              a.font-white(href='/') Log out
+              a(href='/users/#{user.username}') Profile
+            li
+              a(href='/logout') Log out
 
 
 

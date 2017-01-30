@@ -8,10 +8,12 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-  body   
-    include templates/header
-    block content
-    include templates/footer
+  body
+    .wrapper
+        include templates/header
+        .content
+            block content
+        include templates/footer
     script(src="/javascripts/jquery.js", type="text/javascript")
     script(src="/javascripts/bootstrap.min.js", type="text/javascript")
     script(src="/javascripts/login.js", type="text/javascript")

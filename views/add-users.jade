@@ -1,21 +1,3 @@
-//- extends layout
-
-//- block content
-//-   .row
-//-     .col-md-6
-//-       h1 Add a contact
-//-       form(role="form", method="post", action="/users/add")
-//-         .form-group
-//-           label(for="fullname") username
-//-           input#fullname.form-control(name="firstName", type="text", value=usersData.firstName)
-//-         .form-group
-//-           label(for="nickname") Last Name
-//-           input#nickname.form-control(name="lastName", type="text", value=usersData.lastName)
-//-         .form-group
-//-           label(for="email") E-mail address
-//-           input#email.form-control(name="email", type="email", value=usersData.email)
-//-         button.btn.btn-primary(type="submit") Add user
-
 extends layout
 
 block content
@@ -28,17 +10,17 @@ block content
             .col-md-6.col-sm-6
               .input
                 label(for='firstName') First Name
-                input#title(type='text', name='firstName')
+                input(type='text', name='firstName')
               .input
                 label(for='lastName') Last Name
-                input#content(type='text', name='lastName')
+                input(type='text', name='lastName')
               .input
                 label(for='email') Email *required
-                input#author(type='text', name='Email' required)
+                input(type='text', name='Email' required)
               .input
                 label(for='username') Username *required
-                input#author(type='text', name='username' required)
+                input(type='text', name='username' required)
               .input
                 label(for='password') Password *required
-                input#author(type='password', name='password' required)
+                input(type='password', name='password' required)
               button.btn.btn-danger(type='submit') Add User

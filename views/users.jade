@@ -8,8 +8,14 @@ block content
           thead
             tr
               th Username
+              th First Name
+              th Last Name
+              th Email
           thead
             each userData in usersData
               tr
                 th= userData.username
+                th= userData.firstName
+                th= userData.lastName
+                th= userData.email
 

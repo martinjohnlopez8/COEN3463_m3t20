@@ -6,6 +6,21 @@
 
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper {
+    min-height:100%;
+    position:relative;
+}
+
+.content {
+    padding-bottom: 433px;
+}
+
+.delete {
+    margin-left: 30px;
 }
 
 .nav-blue {
@@ -68,13 +83,15 @@ body {
 }
 
 footer {
-    margin: 0;
     padding: 50px 0px;
     background-image: -webkit-gradient(linear,left top,left bottom,from(blue),to(#222));
     color: white;
     text-align: center;
     margin-top: 50px;
     width: 100%;
+    position:absolute;
+    bottom:0;
+    left:0;
 }
 
 .add input[type=text], select {
@@ -130,6 +147,16 @@ footer {
     box-sizing: border-box;
 }
 
+.edit input[type=password], select {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 .edit input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -172,6 +199,7 @@ footer {
     background: #0f6db4;
     padding: .5em;
     color: #fff;
+    margin-top: 50px;
 }
 
 .info-page label{

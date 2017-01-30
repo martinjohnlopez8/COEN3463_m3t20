@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	.container-fluid
+		p
+			a.btn.btn-primary(href='/users/#{userData.username}/edit', role='button') Update
+			a.btn.btn-danger.delete(data-target='##{userData.username}', role='button', data-toggle="modal") DELETE USER
+			.modal.fade(id="#{userData.username}")
+				form(action='/users/#{userData.username}/delete', method='post')
+					.modal-dialog
+						.modal-content
+							.modal-header
+								button.close(type='button', data-dismiss='modal', aria-label='Cancel')
+									span(aria-hidden='true') &times;
+								h4.modal-title This user will be terminated.
+							.modal-body
+								p Do you want to continue?        
+							.modal-footer
+								button.btn.btn-danger(name='submit', type='submit',) Delete
+								button.btn.btn-default(type='button', data-dismiss='modal') Cancel
+		.row
+			.col-md-5.col-sm-12.info-page
+				h5 User Info
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label First Name: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{userData.firstName}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Last Name:  
+					.col-md-7.col-sm-8.col-xs-8
+						p #{userData.lastName}
+				.row
+					.col-md-5.col-sm-4.col-xs-4
+						label Division: 
+					.col-md-7.col-sm-8.col-xs-8
+						p #{userData.email}

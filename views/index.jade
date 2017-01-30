@@ -26,24 +26,33 @@ html
                 .col-lg-12
                   form#login-form(action='/login', method='post', role='form', style='display: block;')
                     .form-group
-                      input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
+                      if (invalidMessage.length > 0)
+                        p.invalid #{invalidMessage}
+                      label(for='username') Username*
+                      input#username.form-control(type='text', name='username', tabindex='1', value='', required)
                     .form-group
-                      input#password.form-control(type='password', name='password', tabindex='2', placeholder='Password')
+                      label(for='password') Password*
+                      input#password.form-control(type='password', name='password', tabindex='2', required)
                     .form-group
                       .row
                         .col-sm-6.col-sm-offset-3
                           input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Log In')
                   form#register-form(action='/register', method='post', role='form', style='display: none;')
                     .form-group
-                      input#username.form-control(type='text', name='username', tabindex='1', placeholder='Username', value='')
+                      label(for='username') Username*
+                      input#username.form-control(type='text', name='username', tabindex='1', value='', required, onkeypress="return onlyAlphabets(event,this);", placeholder='Must be 8 Alpha Characters Long')
                     .form-group
-                      input#password.form-control(type='password', name='password', tabindex='2', placeholder='Password')
+                      label(for='password') Password*
+                      input#pass1.form-control.password(type='password', name='password', tabindex='2', required)
                     .form-group
-                      input#confirm-password.form-control(type='password', name='confirm-password', tabindex='2', placeholder='Confirm Password')
+                      label(for='confirm-password') Confirm Password*
+                      input#pass2.form-control.confirm-password(type='password', name='confirm-password', tabindex='2', onkeyup="checkPass(); return false;", required)
+                      span#confirmMessage.confirmMessage
                     .form-group
                       .row
                         .col-sm-6.col-sm-offset-3
                           input#register-submit.form-control.btn.btn-register(type='submit', name='register-submit', tabindex='4', value='Register Now')
+
     script(src="/javascripts/jquery.js", type="text/javascript")
     script(src="/javascripts/bootstrap.min.js", type="text/javascript")
     script(src="/javascripts/login.js", type="text/javascript")

@@ -2,20 +2,9 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-// 	nbateamsData.find()
-// 		.then(function(nbateamsData){
-// 			res.render('index', {
-// 				title: 'NBA Teams',
-// 				nbateamsData: nbateamsData
-// 			});
-// 		});
-// 	});
-
 router.use(function(req, res, next) {
   if (!req.user) {
-    res.redirect('/login')
+    res.redirect('/')
   }
   next();
 });
@@ -31,12 +20,76 @@ router.get('/', function(req, res) {
   })
 });
 
-router.get('/add', function(req, res) {
-  usersData.find( function(err, usersData, count) {
-    res.render('add-users', {
-    	usersData: usersData
+router.get('/:username', function(req, res, next) {
+    var username = req.params.username;
+    usersData.findOne({username: username}, function(err, userData) {
+        if(!err){
+            res.render('user-profile', {
+                title: 'User Info',
+                user: req.user,
+                userData: userData,
+                moment: moment
+            });
+        }
+        else {
+            res.end(err);
+        }
     });
-  })
+});
+
+router.get('/:username/edit', function(req, res, next) {
+    var username = req.params.username;
+    usersData.findOne({username: username}, function(err, userData) {
+        if(!err){
+            res.render('edit-users', {
+                title: 'Edit Users',
+                user: req.user,
+                userData: userData,
+                moment: moment
+            });
+        }
+        else {
+            res.end(err);
+        }
+    });
+});
+
+router.post('/:username/edit', function(req, res, next) {
+    var username = req.params.username;
+    usersData.findOne({username: username}, function(err, userData) {
+        if(!err){
+            userData.firstName = req.body.firstName;
+            userData.lastName = req.body.lastName;
+            userData.email = req.body.email;
+            userData.username = req.body.username;
+  	        if(req.body.password.length > 0){
+  				    userData.setPassword(req.body.password, function(){
+  				    userData.save();
+				});
+			}
+            userData.save(function(err, userData){
+                if(!err){
+                    res.render('edit-users', {
+                        title: 'Edit User',
+                        user: req.user,
+                        userData: userData,
+                        moment: moment
+                    });
+                }
+                else{
+                    res.render('edit-users', {
+                        title: 'Edit User',
+                        user: req.user,
+                        userData: userData,
+                        moment: moment
+                    });
+                }
+            });
+        }
+        else {
+            res.end(err);
+        }
+    });
 });
 
 router.post('/add', function(req, res, next) {
@@ -53,16 +106,11 @@ router.post('/add', function(req, res, next) {
     });
 });
 
-router.get('/:username', function(req, res, next) {
+router.post('/:username/delete', function(req, res, next) {
     var username = req.params.username;
-    usersData.findOne({username: username}, function(err, userData) {
+    usersData.remove({username: username}, function(err){
         if(!err){
-            res.render('users-info', {
-                title: 'Users Info',
-                user: req.user,
-                usersData: usersData,
-                moment: moment
-            });
+            res.redirect('/');
         }
         else {
             res.end(err);
@@ -70,36 +118,14 @@ router.get('/:username', function(req, res, next) {
     });
 });
 
-// router.post('/add', function(req, res, next) {
-//   var item = {
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     email: req.body.email,
-//     username: req.body.username,
-//     password: req.body.password
-// 	};
-
-//   var data = new usersData(item);
-//   data.save();
-
-//   res.redirect('/users');
- 
-//  });
-// router.get('/', function(req, res, next) {
-//     if(req.user){
-//         usersData.find()
-//             .then(function (usersData) {
-//                 res.render('users', {
-//                     user: req.user,
-//                     title: 'User List',
-//                     usersData: usersData,
-//                     moment: moment,
-//                 });
-//             });
-//     }
-//     else{
-//         res.redirect('/');
-//     }
-// });
 
 module.exports = router;
+
+// router.get('/add', function(req, res) {
+//   usersData.find( function(err, usersData, count) {
+//     res.render('add-users', {
+//      user: req.user,
+//      usersData: usersData
+//     });
+//   })
+// });

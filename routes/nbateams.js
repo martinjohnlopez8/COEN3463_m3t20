@@ -4,7 +4,7 @@ var moment = require('moment');
 
 router.use(function(req, res, next) {
   if (!req.user) {
-    res.redirect('/login')
+    res.redirect('/')
   }
   next();
 });
@@ -94,6 +94,7 @@ router.get('/:nbateamID/edit', function(req, res, next) {
         if(!err){
             res.render('edit', {
                 title: 'NBA Update',
+                user: req.user,
                 nbateamData: nbateamData,
                 usersData: usersData,
                 moment: moment
@@ -152,7 +153,7 @@ router.post('/:nbateamID/edit', function(req, res, next) {
 
 router.post('/:nbateamID/delete', function(req, res, next) {
     var nbateamID = req.params.nbateamID;
-    nbateamsData.remove({_id: nbateamID}, function(err,nbateamData){
+    nbateamsData.remove({_id: nbateamID}, function(err){
         if(!err){
             res.redirect('/nbateams');
         }

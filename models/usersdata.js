@@ -6,9 +6,9 @@ var timestamps = require('mongoose-timestamp');
 var usersDataSchema = new Schema
 (
 	{
-        firstName: {type:String, default: ''},
-        lastName: {type:String, default: ''},
-        email: {type:String, default: ''}
+        firstName: {type: String, default: ''},
+        lastName: {type: String, default: ''},
+        email: {type: String, defaul: ''}
 	},
 	{
 		collection: 'usersData'
