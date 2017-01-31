@@ -10,6 +10,7 @@ var Scheme = mongoose.schema;
 var uri = 'mongodb://admin:password@ds161008.mlab.com:61008/nbadb'
 // var uri = 'localhost/16017'
 var flash = require('connect-flash');
+var expressValidator = require('express-validator')
 var passport = require('passport');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
@@ -40,6 +41,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressValidator([options]));
 app.use(flash());
 app.use(session({
     secret: 'secret',

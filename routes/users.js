@@ -120,12 +120,3 @@ router.post('/:username/delete', function(req, res, next) {
 
 
 module.exports = router;
-
-// router.get('/add', function(req, res) {
-//   usersData.find( function(err, usersData, count) {
-//     res.render('add-users', {
-//      user: req.user,
-//      usersData: usersData
-//     });
-//   })
-// });
