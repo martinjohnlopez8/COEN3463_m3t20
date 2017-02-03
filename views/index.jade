@@ -37,7 +37,16 @@ html
                       .row
                         .col-sm-6.col-sm-offset-3
                           input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Log In')
-                  form#register-form(action='/register', method='post', role='form', style='display: none;')
+                  form#register-form(action='/register', method='post', role='form', style='display: none;', onsubmit='return validation()')
+                    .form-group
+                      label(for='firstName') First Name*
+                      input#firstName.form-control(type='text', name='firstName', tabindex='1', value='', required)
+                    .form-group
+                      label(for='lastName') Last Name*
+                      input#lastName.form-control(type='text', name='lastName', tabindex='1', value='', required)
+                    .form-group
+                      label(for='email') Email*
+                      input#email.form-control(type='email', name='email', tabindex='1', value='', required, maxlength='40')
                     .form-group
                       label(for='username') Username*
                       input#username.form-control(type='text', name='username', tabindex='1', value='', required, onkeypress="return onlyAlphabets(event,this);", placeholder='Must be 8 Alpha Characters Long')
@@ -45,8 +54,8 @@ html
                       label(for='password') Password*
                       input#pass1.form-control.password(type='password', name='password', tabindex='2', required)
                     .form-group
-                      label(for='confirm-password') Confirm Password*
-                      input#pass2.form-control.confirm-password(type='password', name='confirm-password', tabindex='2', onkeyup="checkPass(); return false;", required)
+                      label(for='confirmPassword') Confirm Password*
+                      input#pass2.form-control.confirm-password(type='password', name='confirmPassword', tabindex='2', onkeyup="checkPass(); return false;", required)
                       span#confirmMessage.confirmMessage
                     .form-group
                       .row

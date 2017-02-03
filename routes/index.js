@@ -48,7 +48,12 @@ router.post('/login', function(req, res, next) {
 });
 
 router.post('/register', function(req, res, next) {
-    usersData.register(new usersData({username: req.body.username}), req.body.password, function(err) {
+    usersData.register(new usersData({
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email
+    }), req.body.password, function(err) {
         if(!err){
             passport.authenticate('local', function(err, user) {
                 req.login(user, function(err) {
@@ -68,6 +73,7 @@ router.post('/register', function(req, res, next) {
         }
     });
 });
+
 
 router.get('/login', function(req, res, next) {
   res.render('index', {
