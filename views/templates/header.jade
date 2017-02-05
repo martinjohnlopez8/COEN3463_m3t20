@@ -15,8 +15,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top.nav-blue(role='navigation')
           a.font-white(href='/users') User List
       ul.user-menu
         div.dropdown
-          button.btn.btn-primary.dropdown-toggle(type='button' data-toggle="dropdown") #{user.username}
-          span.caret
+          button.btn.dropdown-toggle.font-white(type='button' data-toggle="dropdown") #{user.username} 
+            span.caret 
           ul.dropdown-menu
             li
               a(href='/users/#{user.username}') Profile

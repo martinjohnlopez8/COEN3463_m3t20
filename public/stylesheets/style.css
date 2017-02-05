@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+html {
+    height: 100%;
+}
+
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     height: 100%;
@@ -16,7 +20,7 @@ body {
 }
 
 .content {
-    padding-bottom: 433px;
+    padding-bottom: 200px;
 }
 
 .delete {
@@ -220,3 +224,11 @@ footer {
     padding: 0;
 }
 
+.user-menu button {
+    margin-top: -6px;
+    background-color: transparent;
+}
+
+.user-menu .caret {
+    color: white;
+}
