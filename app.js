@@ -10,10 +10,14 @@ var Scheme = mongoose.schema;
 var uri = 'mongodb://admin:password@ds161008.mlab.com:61008/nbadb'
 // var uri = 'localhost/16017'
 var flash = require('connect-flash');
-var expressValidator = require('express-validator')
+var expressValidator = require('express-validator');
 var passport = require('passport');
 var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
+
+const restify = require('express-restify-mongoose')
+const methodOverride = require('method-override')
+const router = express.Router()
 
 var index = require('./routes/index');
 var nbateams = require('./routes/nbateams');
@@ -29,6 +33,9 @@ var db = mongoose.connect(uri);
 fs.readdirSync(__dirname + '/models').forEach(function(filename) {
   if (~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
 });
+
+restify.serve(router, usersData);
+app.use(router)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
