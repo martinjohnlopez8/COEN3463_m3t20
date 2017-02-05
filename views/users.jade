@@ -11,6 +11,8 @@ block content
               th First Name
               th Last Name
               th Email
+              th Time Created
+              th Time Updated
           thead
             each userData in usersData
               tr
@@ -18,4 +20,6 @@ block content
                 th= userData.firstName
                 th= userData.lastName
                 th= userData.email
+                th #{moment(userData.createdAt).format("YYYY-MM-DD hh:mm:ss a")}
+                th #{moment(userData.updatedAt).format("YYYY-MM-DD hh:mm:ss a")}
 
