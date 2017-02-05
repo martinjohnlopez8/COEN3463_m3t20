@@ -48,31 +48,70 @@ router.post('/login', function(req, res, next) {
 });
 
 router.post('/register', function(req, res, next) {
-    usersData.register(new usersData({
-        username: req.body.username,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email
-    }), req.body.password, function(err) {
-        if(!err){
-            passport.authenticate('local', function(err, user) {
-                req.login(user, function(err) {
-                    if(!err){
-                        res.redirect('/');
-                    }
-                    else{
-                        res.end(err);
-                    }
-                })
-            })(req, res, next);
-        }
-        else
-        {
-            req.flash('invalidMessage', 'Username already taken');
+    req.checkBody('username', 'Username is short').len(8,20);
+    var errors = req.validationErrors();
+    
+    if(errors){
+            req.flash('invalidMessage', 'Username too short');
             res.redirect('/');
-        }
-    });
+            console.log(errors);
+        } else {
+                usersData.register(new usersData({
+                username: req.body.username,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email
+            }), req.body.password, function(err) {
+                if(!err){
+                    passport.authenticate('local', function(err, user) {
+                        req.login(user, function(err) {
+                            if(!err){
+                                res.redirect('/');
+                            }
+                            else{
+                                res.end(err);
+                            }
+                        })
+                    })(req, res, next);
+                }
+                else
+                {
+                    req.flash('invalidMessage', 'Username already taken');
+                    res.redirect('/');
+                }
+            });
+
+    };
 });
+
+// router.post('/register', function(req, res, next) {
+//     usersData.register(new usersData({
+//         username: req.body.username,
+//         firstName: req.body.firstName,
+//         lastName: req.body.lastName,
+//         email: req.body.email
+//     }), req.body.password, function(err) {
+//         if(!err){
+//             passport.authenticate('local', function(err, user) {
+//                 req.login(user, function(err) {
+//                     if(!err){
+//                         res.redirect('/');
+//                     }
+//                     else{
+//                         res.end(err);
+//                     }
+//                 })
+//             })(req, res, next);
+//         }
+//         else
+//         {
+//             req.flash('invalidMessage', 'Username already taken');
+//             res.redirect('/');
+//         }
+//     });
+// });
+
+
 
 
 router.get('/login', function(req, res, next) {
